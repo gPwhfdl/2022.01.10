@@ -1,0 +1,135 @@
+import turtle as t
+
+def motion(x,y):
+    velo=t.numinput('처음 속도','처음 속도는(1~10)',1,minval=1,maxval=10)
+    velo=velo*10
+    acc=t.numinput('가속도','가속도는(1~10)',1,minval=1,maxval=10)
+    acc=acc*10
+    time=0
+    
+    (a,b)=t.pos()
+    t.write('0,초기속도'+str(velo/10)+'m/s 등속운동')
+    
+    while 1:
+        t.down()
+        t.stamp()
+        time=time+1.00
+        t.goto(a+(velo*time),b)
+        (c,d)=t.pos()
+        if c>490:
+            t.write(str(round((c-a)/10,1))+'m,'+str(round(time,1))+'초')
+            break
+            
+    t.stamp()
+    t.up()
+    t.goto(a,b-50)
+    t.write('0,초기속도'+str(velo/10)+'m/s,가속도'+str(acc/10)+'m/s^2,등가속도 운동')
+    time=0
+    
+    while 1:
+        t.down()
+        t.stamp()
+        time=time+1.00
+        
+        import turtle as t
+import random
+
+def poly(x,y):
+    t.up()
+    t.goto(x,y)
+    fig=t.textinput('도형의 종류','원=1,정사각형=2,정육각형=3 중 선택')
+    leng=t.numinput('Length','how long(10~300)?',50,minval=10,maxval=300)
+
+    if fig=='1':
+        t.color('red')
+        t.begin_fill()
+        t.circle(leng)
+        t.end_fill()
+    elif fig=='2':
+        t.color('blue')
+        t.begin_fill()
+        for i in range(4):
+            t.fd(leng)
+            t.rt(90)
+        t.end_fill()
+    elif fig=='3':
+        t.color('yellow')
+        t.begin_fill()
+        for i in range(6):
+            t.fd(leng)
+            t.rt(60)
+        t.end_fill()
+         
+def go_undo(x,y):
+    t.undo()
+         
+t.setup(1000,1000)
+t.shape('turtle')
+t.shapesize(0.5,0.5)
+t.up()
+         
+t.onscreenclick(poly,btn=1)
+t.onscreenclick(go_undo,btn=3)
+         
+t.listen()
+t.done()
+t.mainloop()
+
+import turtle as t
+import random
+
+def gogo(x,y):
+    color_list=['red','blue','green','purple']
+    color_num=random.randint(0,3)
+    t.pencolor(color_list[color_num])
+    t.stamp()
+    t.goto(x,y)
+    t.write(str(x)+','+str(y))
+    
+t.setup(500,500)
+t.shape('circle')
+t.shapesize(0.3,0.3)
+
+t.onscreenclick(gogo)
+t.listen()
+t.mainloop()
+
+import turtle as t
+
+t.speed(0)
+t.pensize(2)
+t.hideturtle()
+t.onscreenclick(t.goto)
+
+t.mainloop()
+
+import turtle as t
+
+def turn_right():
+    t.setheading(0)
+    t.fd(10)
+    
+def turn_up():
+    t.setheading(90)
+    t.fd(10)
+    
+def turn_left():
+    t.setheading(180)
+    t.fd(10)
+    
+def turn_down():
+    t.setheading(270)
+    t.fd(10)
+    
+def blank():
+    t.clear()
+
+t.shape('turtle')
+t.speed(0)
+t.onkeypress(turn_right, 'Right')
+t.onkeypress(turn_up, 'Up')
+t.onkeypress(turn_left, 'Left')
+t.onkeypress(turn_down, 'Down')
+t.onkeypress(blank, 'Escape')
+t.listen()
+t.mainloop()
