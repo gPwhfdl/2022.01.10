@@ -30,6 +30,10 @@ def motion(x,y):
         t.down()
         t.stamp()
         time=time+1.00
+        t.goto(a+(velo*time)+(1/2*acc*(time**2)),b-50
+        (c,d=t.pos()
+        if c>400:
+            t.write(str(round((c-a)
         
         import turtle as t
 import random
