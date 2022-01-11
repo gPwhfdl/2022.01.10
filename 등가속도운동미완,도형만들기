@@ -33,8 +33,19 @@ def motion(x,y):
         t.goto(a+(velo*time)+(1/2*acc*(time**2)),b-50
         (c,d=t.pos()
         if c>400:
-            t.write(str(round((c-a)
-        
+            t.write(str(round((c-a)/10,1))+'m,'+str(round(time,1))+'초')
+            break
+            
+        t.stamp()
+        t.up()
+       
+t.setup(1000,500)
+t.screensize(1500,500)
+t.shape('circle')
+t.shapesize(0.3,0.3)
+t.pencolor('red')
+t.fillcolor('
+
         import turtle as t
 import random
 
